@@ -1,0 +1,298 @@
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+  text-transform: capitalize;
+  position: sticky;  
+  top: 0;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  color: white;
+}
+
+/* Right-aligned section inside the top navigation */
+.topnav-left {
+  float: left;
+  margin-left: 46px;
+}
+
+/* Right-aligned section inside the top navigation */
+.topnav-right {
+  float: right;
+  margin-right: 46px;
+}
+
+* {
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 175px;
+  position: fixed;
+  background-color: #000011;
+  overflow: auto;
+}
+
+/*adding styles to links */
+.container a {
+  text-decoration: none;
+  display: block;
+  padding: 18px;
+  color: #fff
+}
+
+.container a.active {
+  background-color: #14a093;
+}
+
+.container>a:hover:not(.active) {
+  background-color: #403b3b;
+}
+
+div.content {
+  margin-left: 230px;
+  padding: 40px 40px;
+  height: 100vh;
+}
+main {
+margin-left: 180px;
+}
+
+@media screen and (max-width:1000px) {
+.test {
+  flex-direction: column;
+}
+.column:nth-child(1) {
+  flex: 100%
+}
+}
+
+@media screen and (max-width:650px) {
+  .container {
+      width: 100%;
+      height: auto;
+      position: relative;
+  }
+  .container a {
+      float: left;
+  }
+  div.content {
+      margin-left: 0;
+  }
+  main {
+    margin-left: 0px;
+  }
+  .test {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width:300px) {
+  .container a {
+      text-align: center;
+      float: none;
+  }
+}
+
+/* Basic styling for the signup form */
+.signup-form {
+  max-width: 400px;
+  min-width: 250px;
+  background-color: #f9f9f9;
+  text-align: center;
+  margin: auto;
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+.signup-form-form {
+  max-width: 400px;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+/* Form input fields */
+.signup-form input[type="text"],
+.signup-form input[type="email"],
+.signup-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+/* Form input fields */
+.signup-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    max-width: 100%;
+    max-height: 200px;
+    min-width: 100%;
+    min-height: 100px;
+}
+.signup-form input[type="date"] {
+  font-size: 18px;
+  position: relative;
+  margin-top: 13px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  width: 100%;
+  color: gray;
+  padding: 5px;
+  text-align: center;
+}
+.signup-form input[type="hour"] {
+  display: inline-block;
+  width: 103px; /* Set an appropriate width */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+/* Form submit button */
+.signup-form button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Optional: Add hover effect for the submit button */
+.signup-form button[type="submit"]:hover {
+  background-color: #ddd;
+  color: black;
+}
+.signup-form label {
+  font-weight: bold;
+}
+
+.error .noerror{
+  margin-top: 13px;
+  color: #0247af;
+  text-transform: uppercase;
+}
+
+.error p {
+  color: rgb(134, 0, 0);
+  text-transform: uppercase;
+}
+
+table, th, td {
+  border: 1px solid;
+}
+
+table {
+width: 100%;
+max-width: 500px;
+}
+
+td, th{
+text-align: center;
+padding-top: 10px;
+padding-bottom: 9px;
+
+}
+
+tr:nth-child(even) {
+background-color: #def8f8;
+}
+
+.styled-table {
+max-width: 450px;
+text-align: center;
+min-width: 437px;
+padding: 10px;
+}
+.styled-table-table {
+border-collapse: collapse;
+font-size: 0.9em;
+font-family: sans-serif;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+margin-top: 10px;
+}
+
+.space {
+margin-left: 10px;
+margin-right: 10px;
+}
+
+.test {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between; /* Adjust as needed */
+align-items: flex-start;
+margin-top: 25px;
+}
+.column {
+flex: 33%; /* Equal width for all columns */
+/* Add other styling as needed */
+margin: 0 auto;
+}
+
+
+.button:hover {
+background-color: #5093f8;
+}
+
+.btn {
+width: 80%;
+display: block;
+padding: 7px;
+border: none;
+border-radius: 3px;
+text-decoration: none;
+color: #fff;
+background-color: #0063f7;
+margin-left: 10px;
+margin-right: 10px;
+}
+
+.btnlower {
+margin-top: 1px;
+background-color: #0063f7;
+}
+
+.btn:hover {
+background-color: #5093f8;
+}
+
+.btndanger {
+margin-top: 1px;
+background-color: #333;
+}
+
+.btndanger:hover {
+background-color: #fc1100;
+}
+
+.signup-form input[type="hour"] {
+margin-bottom: 20px;
+width: 117px;
+}

@@ -1,0 +1,19 @@
+Error: [2] Undefined variable $id - C:\xampp\htdocs\todoinc\tasks.php:127
+Error: [2] Undefined variable $id - C:\xampp\htdocs\todoinc\tasks.php:131
+Error: [2] Undefined variable $id - C:\xampp\htdocs\todoinc\tasks.php:127
+Error: [2] Undefined variable $id - C:\xampp\htdocs\todoinc\tasks.php:131
+Error: [2] Undefined variable $id - C:\xampp\htdocs\todoinc\tasks.php:127
+Error: [2] Undefined variable $id - C:\xampp\htdocs\todoinc\tasks.php:131
+Error: [2] Undefined variable $id - C:\xampp\htdocs\todoinc\tasks.php:127
+Error: [2] Undefined variable $id - C:\xampp\htdocs\todoinc\tasks.php:131
+Error: [2] Cannot modify header information - headers already sent by (output started at /storage/ssd4/160/22182160/public_html/header.php:14) - /storage/ssd4/160/22182160/public_html/tasks.php:18
+Error: [2] Cannot modify header information - headers already sent by (output started at /storage/ssd4/160/22182160/public_html/header.php:14) - /storage/ssd4/160/22182160/public_html/tasks.php:18
+Error: [2] Undefined variable $name - /storage/ssd4/160/22182160/public_html/edit.php:30
+Error: [2] Undefined variable $description - /storage/ssd4/160/22182160/public_html/edit.php:31
+Error: [2] Undefined variable $id - /storage/ssd4/160/22182160/public_html/edit.php:32
+Error: [2] Cannot modify header information - headers already sent by (output started at /storage/ssd4/160/22182160/public_html/header.php:14) - /storage/ssd4/160/22182160/public_html/tasks.php:18
+Error: [2] Cannot modify header information - headers already sent by (output started at /storage/ssd4/160/22182160/public_html/header.php:14) - /storage/ssd4/160/22182160/public_html/tasks.php:18
+Error: [2] Cannot modify header information - headers already sent by (output started at /storage/ssd4/160/22182160/public_html/header.php:14) - /storage/ssd4/160/22182160/public_html/tasks.php:18
+Error: [2] Cannot modify header information - headers already sent by (output started at /storage/ssd4/160/22182160/public_html/header.php:14) - /storage/ssd4/160/22182160/public_html/tasks.php:18
+Error: [2] Cannot modify header information - headers already sent by (output started at /storage/ssd4/160/22182160/public_html/header.php:14) - /storage/ssd4/160/22182160/public_html/tasks.php:18
+Error: [2] Cannot modify header information - headers already sent by (output started at /storage/ssd4/160/22182160/public_html/header.php:14) - /storage/ssd4/160/22182160/public_html/tasks.php:18
