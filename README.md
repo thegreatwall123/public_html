@@ -10,7 +10,7 @@ Run Xampp as an administrator or else it won't work!
 Start the Apache and MySQL services.
 
 ## 4th Step
-Go to localhost/phpmyadmin/
+In your browser go to localhost/phpmyadmin/
 
 ## 5th Step
 Go to the SQL tab
@@ -40,13 +40,17 @@ CREATE TABLE `tasks` (
 
 ## 7th Step
 Download the public_html file from https://github.com/thegreatwall123/public_html.git
+(Click the green code button and click download zip)
+Unzip it.
 
 ## 8th Step 
-Move the public_html file to the htdocs folder that was automatically created by the Xampp installation. 
-Found at C://xampp/htdocs. (public_html should not have any files between it and htdocs)
+Move the public_html-main file to the htdocs folder that was automatically created by the Xampp installation. 
+Usually found in your C drive at C://xampp/htdocs. (public_html-main should not have any files between it and htdocs)
 
 ## 9th Step
-Go to localhost/public_html/ 
+In your browser go to localhost/public_html-main/ 
+
+## Comments 
 
 
 
