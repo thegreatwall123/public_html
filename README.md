@@ -25,6 +25,8 @@ CREATE TABLE `users` (
   `userName` VARCHAR(30) NOT NULL,
   `userEmail` VARCHAR(256) NOT NULL,
   `userPassword` VARCHAR(256) NOT NULL,
+  `questionOne` DATE NOT NULL,
+  `questionTwo` VARCHAR(256) NOT NULL,
   PRIMARY KEY (`usersId`)
 );
 CREATE TABLE `tasks` (
