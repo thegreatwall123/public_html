@@ -79,7 +79,8 @@ function authenticateUser($conn, $username, $questionone, $questiontwo) {
         // Redirect to resetPassword.php
         header("location: ../../login/resetPassword.php?error=none");
         exit();
-    } else {
+    } 
+    else {
         // User not found or credentials don't match
         header("location: ../../login/forgotPassword.php?error=incorrectinformation");
         exit();
@@ -111,6 +112,18 @@ function resetPassword($conn, $userid, $pwd) {
 function emptyInputLogin($username, $pwd) {
     $result; 
     if (empty($username) || empty($pwd)) {
+        $result = true;
+    }
+    else {
+        $result = false;
+    }
+    return $result;
+}
+
+// error handler for empty input fields. ForgotPassword.inc.php
+function emptyInputSecurity($username, $questionone, $questiontwo) {
+    $result; 
+    if (empty($username) || empty($questionone) || empty($questiontwo)) {
         $result = true;
     }
     else {

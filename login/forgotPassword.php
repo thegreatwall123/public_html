@@ -19,10 +19,12 @@
     <div class="error">
         <?php
             if (isset($_GET["error"])) {
+                # If any fields are empty returns an error message.
                 if ($_GET["error"] == "emptyinput") {
                     echo "<p>Fill in all fields</p>";
                 }
-                else if ($_GET["error"] == "wronglogin") {
+                # If the answers to the security questions don't match then displays an error message.
+                if ($_GET["error"] == "incorrectinformation") {
                     echo "<p>Incorrect login information</p>";
                 }
             }

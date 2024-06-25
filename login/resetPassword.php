@@ -28,13 +28,15 @@
     <div class="error">
         <?php
             if (isset($_GET["error"])) {
+                if ($_GET["error"] == "emptyinput") {
+                    echo "<p>Fill in all fields</p>";
+                } 
                 if ($_GET["error"] == "passwordsdontmatch") {
                     echo "<p>passwords don't match</p>";
-                } else if ($_GET["error"] == "emptyinput") {
-                    echo "<p>Fill in all fields</p>";
-                } else if ($_GET["error"] == "wronglogin") {
-                    echo "<p>Incorrect login information</p>";
-                }
+                } 
+                else if ($_GET["error"] == "none") {
+                    echo "<p class='noerror'>Access Granted</p>";
+                } 
             }
         ?>
     </div>

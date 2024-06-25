@@ -11,6 +11,12 @@ if (isset($_POST["submit"])) {
     require_once '../dbh.inc.php';
     require_once 'functions.inc.php';
 
+    # forgotPassword.php
+    if (emptyInputSecurity($username, $questionone, $questiontwo) !== false) {
+        header("location: ../../login/forgotPassword.php?error=emptyinput");
+        exit();
+    }
+
     authenticateUser($conn, $username, $formattedQuestionOne, $questiontwo);
 }
 else {
