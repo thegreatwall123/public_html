@@ -25,14 +25,14 @@ associated with their userid.
 
     <section class="signup-form column">
         <h2>Daily Tasks Entry</h2>
-            <div class="signup-form-form">
-                <form action="includes/edit.inc.php" method="post">
-                    <input type="text" name="taskname" maxlength="30" value="<?php echo $name;?>" placeholder="Task Name...">
-                    <textarea name="taskdescription" maxlength="256" rows="3" cols="25" placeholder="Task Description..."><?php echo $description;?></textarea>
-                    <button type="submit" name="submit" value="<?php echo $id;?>">Submit Entry</button>
-                </form>
-            </div>
-    </section> 
+        <div class="signup-form-form">
+            <form action="includes/edit.inc.php" method="post">
+                <input type="text" name="taskname" maxlength="30" value="<?php echo $name;?>" placeholder="Task Name">
+                <textarea name="taskdescription" maxlength="256" rows="3" cols="25" placeholder="Task Description"><?php echo $description;?></textarea>
+                <button type="submit" name="submit" value="<?php echo $id;?>">Submit Entry</button>
+            </form>
+        </div>
+    </section>
 
 
 <?php
