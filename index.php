@@ -45,9 +45,9 @@ include_once 'sidebar.php';
                 <h2>Update Your Information</h2>
                 <div class="user-info-form-form">
                     <form action="includes/userinfo.inc.php" method="post" enctype="multipart/form-data">
-                        <input type="text" name="fname" maxlength="50" placeholder="First Name" value="<?php echo isset($userInfo['fname']) ? $userInfo['fname'] : ''; ?>">
-                        <input type="text" name="lname" maxlength="50" placeholder="Last Name" value="<?php echo isset($userInfo['lname']) ? $userInfo['lname'] : ''; ?>">
-                        <textarea name="bio" maxlength="256" rows="3" cols="25" placeholder="Bio"><?php echo isset($userInfo['bio']) ? $userInfo['bio'] : ''; ?></textarea>
+                        <input type="text" name="fname" maxlength="50" placeholder="First Name" value="">
+                        <input type="text" name="lname" maxlength="50" placeholder="Last Name" value="">
+                        <textarea name="bio" maxlength="256" rows="3" cols="25" placeholder="Bio"></textarea>
                         <input type="file" name="profilepicture" accept="image/*">
                         <button type="submit" name="submit">Update Info</button>
                     </form>

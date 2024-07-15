@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
     require_once 'functions.inc.php';
 
     // Handle profile picture upload
-    $filePath = null;
+    $profilePictureData = null;
     if (!empty($profilepicture['name'])) {
         $fileTmpName = $profilepicture['tmp_name'];
         $fileSize = $profilepicture['size'];
@@ -26,10 +26,7 @@ if (isset($_POST['submit'])) {
         if (in_array($fileActualExt, $allowed)) {
             if ($fileError === 0) {
                 if ($fileSize < 5000000) { // Limit to 5MB
-                    $fileNameNew = "profile" . $userid . "." . $fileActualExt;
-                    $fileDestination = '../uploads/' . $fileNameNew;
-                    move_uploaded_file($fileTmpName, $fileDestination);
-                    $filePath = 'uploads/' . $fileNameNew;
+                    $profilePictureData = file_get_contents($fileTmpName);
                 } else {
                     header("location: ../index.php?error=filetoobig");
                     exit();
@@ -76,10 +73,10 @@ if (isset($_POST['submit'])) {
             $params[] = $bio;
             $types .= "s";
         }
-        if (!empty($filePath)) {
+        if (!empty($profilePictureData)) {
             $sqlUpdate .= "profilepicture = ?, ";
-            $params[] = $filePath;
-            $types .= "s";
+            $params[] = $profilePictureData;
+            $types .= "b";
         }
 
         // Remove trailing comma and space
@@ -94,6 +91,7 @@ if (isset($_POST['submit'])) {
             exit();
         }
         mysqli_stmt_bind_param($stmtUpdate, $types, ...$params);
+        mysqli_stmt_send_long_data($stmtUpdate, array_search($profilePictureData, $params), $profilePictureData);
         mysqli_stmt_execute($stmtUpdate);
         mysqli_stmt_close($stmtUpdate);
     } else {
@@ -104,7 +102,8 @@ if (isset($_POST['submit'])) {
             header("location: ../index.php?error=stmtfailed");
             exit();
         }
-        mysqli_stmt_bind_param($stmtInsert, "issss", $userid, $fname, $lname, $bio, $filePath);
+        mysqli_stmt_bind_param($stmtInsert, "isssb", $userid, $fname, $lname, $bio, $profilePictureData);
+        mysqli_stmt_send_long_data($stmtInsert, 4, $profilePictureData);
         mysqli_stmt_execute($stmtInsert);
         mysqli_stmt_close($stmtInsert);
     }
