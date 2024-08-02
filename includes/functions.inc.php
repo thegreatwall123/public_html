@@ -107,22 +107,24 @@ function validateUsernameLength($username) {
 
 /* Functions for the ToDos Tab */
 
-function taskSubmit($conn, $taskname, $taskdescription, $currentdate, $usersid) {
-    $sql = "INSERT INTO tasks (taskName, taskDescription, currentDate,
-    usersId) VALUES (?, ?, ?, ?);";
+function taskSubmit($conn, $taskname, $taskdescription, $currentdate, $completedate, $usersid) {
+    $sql = "INSERT INTO tasks (taskName, taskDescription, currentDate, completeDate, usersId) VALUES (?, ?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../tasks.php?error=stmtfailed");
         exit();
     }
 
-    mysqli_stmt_bind_param($stmt, "ssss", $taskname, $taskdescription, $currentdate, $usersid);
+    // Bind the parameters as strings
+    mysqli_stmt_bind_param($stmt, "sssss", $taskname, $taskdescription, $currentdate, $completedate, $usersid);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
     header("location: ../tasks.php?error=none");
     exit();
 }
+
+
 
 function emptyInputDataEntry($taskname, $taskdescription) {
     $result; 
@@ -147,7 +149,7 @@ function invalidTaskName($taskname) {
 
 function listTasks($conn, $userid) {
 
-    $sql = "SELECT tasksId, taskName, taskDescription FROM tasks
+    $sql = "SELECT tasksId, taskName, taskDescription, completeDate FROM tasks
     WHERE usersId = $userid
     AND checkbox IS NULL
     or checkbox = 0 AND usersId = $userid

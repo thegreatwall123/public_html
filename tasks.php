@@ -6,6 +6,54 @@ include_once 'sidebar.php';
 
 <main class="test">
 
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Task Manager</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+    </head>
+    <body>
+    <div id="calendar"></div>
+
+    <script>
+        $(document).ready(function() {
+            var taskEvents = [];
+
+            <?php
+            if (isset($_SESSION["username"])) {
+                $userid = $_SESSION["usersid"];
+                require_once 'includes/dbh.inc.php';
+                require_once 'includes/functions.inc.php';
+                $result = listTasks($conn, $userid);
+
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $id = $row['tasksId'];
+                    $name = $row['taskName'];
+                    $description = $row['taskDescription'];
+                    if (isset($row['completeDate'])) {
+                        $completeDate = date('Y-m-d', strtotime($row['completeDate']));
+                    } else {
+                        $completeDate = 'no date found';
+                    }
+                    echo "taskEvents.push({
+                    title: '".addslashes($name)."',
+                    start: '".addslashes($completeDate)."'
+                });";
+                }
+            }
+            ?>
+
+            $('#calendar').fullCalendar({
+                events: taskEvents
+            });
+        });
+    </script>
+    </body>
+    </html>
 
     <?php
     // only access if the user is logged in.
@@ -16,7 +64,7 @@ include_once 'sidebar.php';
         $result = listTasks($conn, $userid);
         $result2 = completedTasks($conn, $userid);
     }
-    // else redirect to this page.
+// else redirect to this page.
     else {
         header("location: index.php");
         exit();
@@ -29,6 +77,8 @@ include_once 'sidebar.php';
             <form action="includes/tasks.inc.php" method="post">
                 <input type="text" name="taskname" maxlength="30" placeholder="Task Name">
                 <textarea name="taskdescription" maxlength="256" rows="3" cols="25" placeholder="Task Description"></textarea>
+                <input type="date" name="completeDate" placeholder="Complete Date">
+
                 <button type="submit" name="submit">Submit Entry</button>
             </form>
         </div>
@@ -54,7 +104,6 @@ include_once 'sidebar.php';
         </div>
     </section>
 
-
     <?php
     if (mysqli_num_rows($result) > 0) {
         echo '<div class="styled-table column">';
@@ -63,13 +112,19 @@ include_once 'sidebar.php';
         echo '<tr>';
         echo '<th>Task Name</th>';
         echo '<th>Task Description</th>';
+        echo '<th>Task Date</th>';
         echo '<th>Changes</th>';
         echo '</tr>';
-        echo '<tr>';
-        while($row = mysqli_fetch_assoc($result)) {
+        while ($row = mysqli_fetch_assoc($result)) {
             $id = $row['tasksId'];
             $name = $row['taskName'];
             $description = $row['taskDescription'];
+            if (isset($row['completeDate'])) {
+                $completeDate = date('Y-m-d', strtotime($row['completeDate']));
+            } else {
+                // Handle the case where completeDate is not set
+                $completeDate = 'no date found';
+            }
             ?>
             <td>
                 <div class="space">
@@ -79,6 +134,11 @@ include_once 'sidebar.php';
             <td>
                 <div class="space">
                     <?php echo $description?>
+                </div>
+            </td>
+            <td>
+                <div class="space">
+                    <?php echo $completeDate?>
                 </div>
             </td>
             <td>
