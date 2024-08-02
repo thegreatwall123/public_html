@@ -2,7 +2,7 @@
 
 /* Functions for the login page */
 
-// Checks if the uid Exists in the database. 
+// Checks if the uid Exists in the database.
 function uidExists($conn, $username, $email) {
     $sql = "SELECT * FROM users WHERE userName = ? OR userEmail = ?;";
     $stmt = mysqli_stmt_init($conn);
@@ -55,7 +55,7 @@ function loginUser($conn, $username, $pwd) {
     }
 }
 
-// Checks if the user's reset password information is correct  
+// Checks if the user's reset password information is correct
 function authenticateUser($conn, $username, $questionone, $questiontwo) {
 
     $sql = "SELECT usersId FROM users WHERE (userName = ? OR userEmail = ?)
@@ -79,7 +79,7 @@ function authenticateUser($conn, $username, $questionone, $questiontwo) {
         // Redirect to resetPassword.php
         header("location: ../../login/resetPassword.php?error=none");
         exit();
-    } 
+    }
     else {
         // User not found or credentials don't match
         header("location: ../../login/forgotPassword.php?error=incorrectinformation");
@@ -89,7 +89,7 @@ function authenticateUser($conn, $username, $questionone, $questiontwo) {
     mysqli_stmt_close($stmt);
 }
 
-// Checks if the user's reset password information is correct  
+// Checks if the user's reset password information is correct
 function resetPassword($conn, $userid, $pwd) {
     $updateSql = "UPDATE users SET userPassword = ? WHERE usersId = ?;";
     $stmt = mysqli_stmt_init($conn);
@@ -110,7 +110,7 @@ function resetPassword($conn, $userid, $pwd) {
 
 // error handler for empty input fields.
 function emptyInputLogin($username, $pwd) {
-    $result; 
+    $result;
     if (empty($username) || empty($pwd)) {
         $result = true;
     }
@@ -122,7 +122,7 @@ function emptyInputLogin($username, $pwd) {
 
 // error handler for empty input fields. ForgotPassword.inc.php
 function emptyInputSecurity($username, $questionone, $questiontwo) {
-    $result; 
+    $result;
     if (empty($username) || empty($questionone) || empty($questiontwo)) {
         $result = true;
     }
@@ -134,7 +134,7 @@ function emptyInputSecurity($username, $questionone, $questiontwo) {
 
 // error handler for the passwords to match.
 function pwdMatch($pwd, $pwdRepeat) {
-    $result; 
+    $result;
     if ($pwd !== $pwdRepeat) {
         $result = true;
     }
