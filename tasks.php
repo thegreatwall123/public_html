@@ -78,6 +78,7 @@ include_once 'sidebar.php';
                 <input type="text" name="taskname" maxlength="30" placeholder="Task Name">
                 <textarea name="taskdescription" maxlength="256" rows="3" cols="25" placeholder="Task Description"></textarea>
                 <input type="date" name="completeDate" placeholder="Complete Date">
+
                 <button type="submit" name="submit">Submit Entry</button>
             </form>
         </div>

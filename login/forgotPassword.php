@@ -1,10 +1,10 @@
 <?php
-    include_once 'header.php';
+include_once 'header.php';
 ?>
 
 
-<section class="signup-form">
-    <h2>Forgot Password</h2>
+    <section class="signup-form">
+        <h2>Forgot Password</h2>
         <div class="signup-form-form">
             <form action="../includes/login/forgotPassword.inc.php" method="post">
                 <label style="margin-right: 145px; font-weight: normal;" for="username">Enter your username or email</label>
@@ -16,8 +16,8 @@
                 <button type="submit" name="submit">Confirm</button>
             </form>
         </div>
-    <div class="error">
-        <?php
+        <div class="error">
+            <?php
             if (isset($_GET["error"])) {
                 # If any fields are empty returns an error message.
                 if ($_GET["error"] == "emptyinput") {
@@ -28,11 +28,11 @@
                     echo "<p>Incorrect login information</p>";
                 }
             }
-        ?>
-    </div>
-</section>
+            ?>
+        </div>
+    </section>
 
 
 <?php
-    include_once '../footer.php';
+include_once '../footer.php';
 ?>
