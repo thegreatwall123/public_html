@@ -39,6 +39,18 @@ CREATE TABLE `tasks` (
   PRIMARY KEY (`tasksId`),
   FOREIGN KEY (`usersId`) REFERENCES `users`(`usersId`)
 );
+CREATE TABLE userinfo (
+    usersId INT,
+    bio TEXT,
+    fname VARCHAR(50),
+    lname VARCHAR(50),
+    profilepicture LONGBLOB,
+    FOREIGN KEY (usersId) REFERENCES users(usersId)
+);
+ALTER TABLE userinfo
+ADD UNIQUE(usersId);
+ALTER TABLE tasks ADD COLUMN completeDate date;
+ 
 
 ## 7th Step
 Download the public_html file from https://github.com/thegreatwall123/public_html.git
